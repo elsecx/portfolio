@@ -20,7 +20,8 @@
         "react": "^18",
         "react-dom": "^18",
         "react-lottie": "^1.2.10",
-        "tailwind-merge": "^2.4.0"
+        "tailwind-merge": "^2.4.0",
+        "zustand": "^5.0.5"
     },
     "devDependencies": {
         "@types/node": "^20",
