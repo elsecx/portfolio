@@ -5,7 +5,6 @@ import {
     NavbarItem,
     NavbarMenuToggle,
 } from "@nextui-org/react";
-import ThemeSwitcher from "@/components/commons/ThemeSwitcher";
 import { site } from "@/config/constant";
 import React from "react";
 import { Menu, X } from "lucide-react";
@@ -21,9 +20,6 @@ const Navbar = () => {
                 </a>
             </NavbarBrand>
             <NavbarContent justify="end">
-                <NavbarItem>
-                    <ThemeSwitcher />
-                </NavbarItem>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     icon={() => (isMenuOpen ? <X /> : <Menu />)}
