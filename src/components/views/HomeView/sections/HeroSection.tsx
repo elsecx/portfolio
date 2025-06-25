@@ -6,21 +6,22 @@ import heroBg from "@/assets/images/hero.jpg";
 
 const HeroSection = () => {
     const { ref: heroRef, scrollYProgress } = useScrollTrack({
-        offset: ["start start", "end end"],
+        offset: ["start end", "end start"],
     });
 
     const textFrom = "Let Me Introduce";
     const textTo = "I'm Elgin Al-wafi";
-    const scrambledText = useScrambleText(scrollYProgress, textFrom, textTo);
+    const progress = useTransform(scrollYProgress, [0, 1], [-1, 2]);
+    const scrambled = useScrambleText(progress, textFrom, textTo);
 
-    const scale = useTransform(scrollYProgress, [0, 1], ["1", "3"]);
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 3]);
 
     return (
         <section ref={heroRef} className="relative h-[200vh]">
             {/* Background */}
             <motion.div
                 style={{ scale }}
-                className="absolute inset-0 z-0 h-screen w-full bg-cover bg-center"
+                className="absolute inset-0 -top-16 z-0 h-screen w-full bg-cover bg-center"
             >
                 <div
                     className="h-full w-full"
@@ -34,9 +35,9 @@ const HeroSection = () => {
 
             {/* Text Scramble */}
             <div className="sticky top-16 flex h-[calc(100vh-6rem)] flex-col items-center justify-center">
-                <h1 className="text-center text-5xl font-bold md:text-8xl">{scrambledText}</h1>
+                <h1 className="text-center text-5xl font-bold md:text-8xl">{scrambled}</h1>
                 <AnimatePresence>
-                    {scrambledText === textTo && (
+                    {scrambled === textTo && (
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
