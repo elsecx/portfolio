@@ -1,5 +1,6 @@
 import Navbar from "@/components/commons/Navbar";
 import PageHead from "@/components/commons/PageHead";
+import { fontVariables } from "@/config/fonts";
 import { ReactNode } from "react";
 
 interface MainLayoutProps {
@@ -12,7 +13,7 @@ const MainLayout = ({ children, title }: MainLayoutProps) => {
         <>
             <PageHead title={title} />
             <Navbar />
-            <main>{children}</main>
+            <main className={fontVariables}>{children}</main>
         </>
     );
 };
