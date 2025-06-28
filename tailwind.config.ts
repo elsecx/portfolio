@@ -11,8 +11,8 @@ const config: Config = {
     theme: {
         extend: {
             fontFamily: {
-                inter: ["var(--font-inter)", "sans-serif"],
-                marker: ["var(--font-permanent-marker)", "cursive"],
+                "permanent-marker": ["var(--font-permanent-marker)", "cursive"],
+                "young-serif": ["var(--font-young-serif)", "serif"],
             },
         },
     },

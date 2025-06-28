@@ -1,28 +1,40 @@
 import React from "react";
-import { AnimatePresence, motion, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useMotionTemplate, useTransform } from "framer-motion";
 import useScrollTrack from "@/hooks/useScrollTrack";
 import { useScrambleText } from "@/hooks/useScrambleText";
 import heroBg from "@/assets/images/hero.jpg";
 
 const HeroSection = () => {
     const { ref: heroRef, scrollYProgress } = useScrollTrack({
-        offset: ["start end", "end start"],
+        offset: ["start start", "end end"],
     });
 
+    // Parallax Background Scale
+    const bgScale = useTransform(scrollYProgress, [0, 1], [1.5, 1]);
+
+    // Title Effect
     const textFrom = "Let Me Introduce";
     const textTo = "I'm Elgin Al-wafi";
-    const progress = useTransform(scrollYProgress, [0, 1], [-1, 2]);
+    const progress = useTransform(scrollYProgress, [0.6, 1], [-0.01, 1]);
     const scrambled = useScrambleText(progress, textFrom, textTo);
+    const titleBlurProgress = useTransform(progress, [0, 0.6, 0.8, 1], [0, 20, 20, 0]);
+    const titleFilter = useMotionTemplate`blur(${titleBlurProgress}px)`;
 
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 3]);
+    // Subtitle Effect
+    const subOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+    const subBlurProgress = useTransform(scrollYProgress, [0, 0.5], [20, 0]);
+    const subFilter = useMotionTemplate`blur(${subBlurProgress}px)`;
 
     return (
-        <section ref={heroRef} className="relative h-[200vh]">
+        <section ref={heroRef} className="relative h-[400vh]">
             {/* Background */}
             <motion.div
-                style={{ scale }}
-                className="absolute inset-0 -top-16 z-0 h-screen w-full bg-cover bg-center"
+                style={{ scale: bgScale }}
+                className="sticky top-16 z-0 h-screen w-full origin-center bg-cover bg-center"
             >
+                {/* Background Overlay */}
+                <div className="pointer-events-none absolute left-0 right-0 top-0 h-[500px] bg-gradient-to-t from-transparent to-black" />
+
                 <div
                     className="h-full w-full"
                     style={{
@@ -31,24 +43,42 @@ const HeroSection = () => {
                         backgroundPosition: "center",
                     }}
                 />
+
+                {/* Background Overlay */}
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[500px] bg-gradient-to-b from-transparent to-black" />
             </motion.div>
 
-            {/* Text Scramble */}
-            <div className="sticky top-16 flex h-[calc(100vh-6rem)] flex-col items-center justify-center">
-                <h1 className="text-center text-5xl font-bold md:text-8xl">{scrambled}</h1>
-                <AnimatePresence>
-                    {scrambled === textTo && (
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 20 }}
-                            transition={{ duration: 0.6 }}
-                            className="text-md font-bold italic text-indigo-400 md:mt-2 md:text-2xl"
-                        >
-                            Creative Developer Based In Indonesian
-                        </motion.p>
-                    )}
-                </AnimatePresence>
+            <div className="fixed inset-0 z-10 flex flex-col items-center justify-center gap-3">
+                <motion.h1
+                    className="font-permanent-marker text-center text-5xl font-bold md:text-8xl"
+                    style={{
+                        filter: titleFilter,
+                    }}
+                >
+                    {scrambled}
+                </motion.h1>
+                <div className="flex items-center justify-center gap-5">
+                    <motion.span
+                        className="font-young-serif text-3xl font-semibold md:text-6xl"
+                        style={{
+                            opacity: subOpacity,
+                            x: useTransform(scrollYProgress, [0, 0.5], [-400, 0]),
+                            filter: subFilter,
+                        }}
+                    >
+                        My self
+                    </motion.span>
+                    <motion.span
+                        className="font-young-serif text-3xl font-semibold text-emerald-400 md:text-6xl"
+                        style={{
+                            opacity: subOpacity,
+                            x: useTransform(scrollYProgress, [0, 0.5], [400, 0]),
+                            filter: subFilter,
+                        }}
+                    >
+                        as developer
+                    </motion.span>
+                </div>
             </div>
         </section>
     );
