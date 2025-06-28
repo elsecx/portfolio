@@ -1,5 +1,5 @@
-import { site } from "@/config/constant";
 import Head from "next/head";
+import { site } from "@/config/constant";
 
 interface PropTypes {
     title?: string;

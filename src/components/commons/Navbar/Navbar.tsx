@@ -1,12 +1,11 @@
+import React from "react";
 import {
     Navbar as NextUINavbar,
     NavbarBrand,
     NavbarContent,
-    NavbarItem,
     NavbarMenuToggle,
 } from "@nextui-org/react";
 import { site } from "@/config/constant";
-import React from "react";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
