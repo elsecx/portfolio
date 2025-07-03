@@ -5,8 +5,9 @@ import {
     NavbarContent,
     NavbarMenuToggle,
 } from "@nextui-org/react";
-import { site } from "@/config/constant";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { site } from "@/config/constant";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -14,9 +15,9 @@ const Navbar = () => {
     return (
         <NextUINavbar onMenuOpenChange={setIsMenuOpen}>
             <NavbarBrand>
-                <a href="/" className="font-bold text-inherit">
+                <Link href="/" className="font-bold text-inherit">
                     {site.othername}
-                </a>
+                </Link>
             </NavbarBrand>
             <NavbarContent justify="end">
                 <NavbarMenuToggle
