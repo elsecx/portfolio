@@ -13,7 +13,7 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     return (
-        <NextUINavbar onMenuOpenChange={setIsMenuOpen}>
+        <NextUINavbar isBordered onMenuOpenChange={setIsMenuOpen}>
             <NavbarBrand>
                 <Link href="/" className="font-bold text-inherit">
                     {site.othername}
