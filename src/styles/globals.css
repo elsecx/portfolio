@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+    body {
+        @apply text-amber-50;
+    }
+
     body::before {
         content: "";
         position: fixed;
