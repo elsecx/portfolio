@@ -16,7 +16,7 @@
         height: 100vh;
 
         /* you can control opacity of noise  */
-        opacity: 0.05;
+        opacity: 0.08;
         pointer-events: none;
         background: url("../assets/images/noise.gif");
     }
