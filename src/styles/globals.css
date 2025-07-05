@@ -20,4 +20,18 @@
         pointer-events: none;
         background: url("../assets/images/noise.gif");
     }
+
+    .splash-container::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+
+        /* you can control opacity of noise  */
+        opacity: 0.08;
+        pointer-events: none;
+        background: url("../assets/images/noise.gif");
+    }
 }
