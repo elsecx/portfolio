@@ -61,16 +61,31 @@ const HeroSection = () => {
     return (
         <section ref={heroRef} className="relative h-[200vh]">
             <div className={styles.textContainer}>
-                <motion.h1 className={styles.title} style={titleStyle}>
+                <motion.h1
+                    initial={{ opacity: 0, x: -400 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={styles.title}
+                    style={titleStyle}
+                >
                     {scrambled}
                 </motion.h1>
-                <motion.h4 className={styles.subTitle} style={subTitleStyle}>
+                <motion.h4
+                    initial={{ opacity: 0, scale: 0, skewY: -3 }}
+                    animate={{ opacity: 1, scale: 1, skewY: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={styles.subTitle}
+                    style={subTitleStyle}
+                >
                     My self as developer
                 </motion.h4>
             </div>
 
             {/* Hero Image */}
             <motion.div
+                initial={{ opacity: 0, x: 200 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
                 style={meStyle}
                 className="fixed -right-8 bottom-20 h-[220px] w-[220px] md:-right-20 md:bottom-40 md:h-[400px] md:w-[400px]"
             >

@@ -26,6 +26,9 @@ const CautionStripe: React.FC<CautionStripeProps> = ({
 
     return (
         <motion.div
+            initial={{ opacity: 0, x: direction === "left" ? -500 : 500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: 0.6 }}
             style={{
                 x,
                 opacity,
