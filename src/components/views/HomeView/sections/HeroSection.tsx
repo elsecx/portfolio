@@ -59,7 +59,7 @@ const HeroSection = () => {
     };
 
     return (
-        <section ref={heroRef} className="relative h-[400vh]">
+        <section ref={heroRef} className="relative h-[200vh]">
             <div className={styles.textContainer}>
                 <motion.h1 className={styles.title} style={titleStyle}>
                     {scrambled}
