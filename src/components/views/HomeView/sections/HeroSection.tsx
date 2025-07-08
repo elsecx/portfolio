@@ -13,8 +13,9 @@ const HeroSection = () => {
     });
 
     const styles = {
+        wrapper: "sticky top-0 h-screen overflow-hidden",
         textContainer:
-            "fixed inset-0 p-8 flex flex-col items-center justify-center md:items-start md:gap-2 md:p-16",
+            "sticky top-0 h-screen p-8 flex flex-col items-center justify-center md:items-start md:gap-2 md:p-16",
         title: "text-center font-permanent-marker text-4xl font-bold md:text-8xl",
         subTitle: "text-md text-emerald-400 font-young-serif font-semibold uppercase md:text-4xl",
     };
@@ -59,67 +60,74 @@ const HeroSection = () => {
     };
 
     return (
-        <section ref={heroRef} className="relative h-[200vh]">
-            <div className={styles.textContainer}>
-                <motion.h1
-                    initial={{ opacity: 0, x: -400 }}
+        <section ref={heroRef} className="relative h-[400vh]">
+            <div className={styles.wrapper}>
+                <div className={styles.textContainer}>
+                    <motion.h1
+                        initial={{ opacity: 0, x: -400 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className={styles.title}
+                        style={titleStyle}
+                    >
+                        {scrambled}
+                    </motion.h1>
+                    <motion.h4
+                        initial={{ opacity: 0, scale: 0, skewY: -3 }}
+                        animate={{ opacity: 1, scale: 1, skewY: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className={styles.subTitle}
+                        style={subTitleStyle}
+                    >
+                        My self as developer
+                    </motion.h4>
+                </div>
+
+                {/* Hero Image */}
+                <motion.div
+                    initial={{ opacity: 0, x: 200 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className={styles.title}
-                    style={titleStyle}
+                    transition={{ duration: 0.3, delay: 0.5 }}
+                    style={meStyle}
+                    className="absolute -right-8 bottom-20 h-[220px] w-[220px] md:-right-20 md:bottom-40 md:h-[400px] md:w-[400px]"
                 >
-                    {scrambled}
-                </motion.h1>
-                <motion.h4
-                    initial={{ opacity: 0, scale: 0, skewY: -3 }}
-                    animate={{ opacity: 1, scale: 1, skewY: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className={styles.subTitle}
-                    style={subTitleStyle}
+                    <Image
+                        src={Me}
+                        alt="Me"
+                        className="drop-shadow-[0_0_8px_rgba(0,212,146,0.2)]"
+                    />
+                </motion.div>
+
+                {/* Skull Hand Image */}
+                <motion.div
+                    style={skullHandStyle}
+                    className="absolute -left-12 top-10 h-[200px] w-[200px]"
                 >
-                    My self as developer
-                </motion.h4>
-            </div>
+                    <Image
+                        src={SkullHand}
+                        alt="Skull Hand"
+                        className="drop-shadow-[0_0_8px_rgba(0,0,0,0.2)]"
+                    />
+                </motion.div>
 
-            {/* Hero Image */}
-            <motion.div
-                initial={{ opacity: 0, x: 200 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-                style={meStyle}
-                className="fixed -right-8 bottom-20 h-[220px] w-[220px] md:-right-20 md:bottom-40 md:h-[400px] md:w-[400px]"
-            >
-                <Image src={Me} alt="Me" className="drop-shadow-[0_0_8px_rgba(0,212,146,0.2)]" />
-            </motion.div>
-
-            {/* Skull Hand Image */}
-            <motion.div
-                style={skullHandStyle}
-                className="fixed -left-12 top-10 h-[200px] w-[200px]"
-            >
-                <Image
-                    src={SkullHand}
-                    alt="Skull Hand"
-                    className="drop-shadow-[0_0_8px_rgba(0,0,0,0.2)]"
+                {/* Caution Stripes */}
+                <CautionStripe
+                    scrollProgress={scrollYProgress}
+                    from={0.6}
+                    to={1}
+                    direction="left"
+                    angle={5}
+                    className="bottom-0"
                 />
-            </motion.div>
-
-            <CautionStripe
-                scrollProgress={scrollYProgress}
-                from={0.6}
-                to={1}
-                direction="left"
-                angle={5}
-                className="bottom-0"
-            />
-            <CautionStripe
-                scrollProgress={scrollYProgress}
-                from={0.6}
-                to={1}
-                direction="right"
-                angle={-2}
-                className="bottom-0"
-            />
+                <CautionStripe
+                    scrollProgress={scrollYProgress}
+                    from={0.6}
+                    to={1}
+                    direction="right"
+                    angle={-2}
+                    className="bottom-0"
+                />
+            </div>
         </section>
     );
 };
