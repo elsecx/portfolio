@@ -53,7 +53,7 @@ const HeroSection = () => {
     return (
         <section ref={heroRef} id="hero-section" className="relative h-[400vh]">
             <div className="wrapper">
-                {/* Hero Text */}
+                {/* Hero title */}
                 <div className="sticky top-0 z-[1] flex h-screen flex-col items-center justify-center p-8 md:items-start md:p-16">
                     <motion.h1
                         initial={{ opacity: 0, x: -400 }}
