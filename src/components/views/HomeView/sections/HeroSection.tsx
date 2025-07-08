@@ -1,100 +1,92 @@
 import React from "react";
-import { motion, useMotionTemplate, useTransform } from "framer-motion";
+import { motion, useTransform, useMotionTemplate } from "framer-motion";
 import Image from "next/image";
-import { useScrambleText } from "@/hooks/useScrambleText";
 import useScrollTrack from "@/hooks/useScrollTrack";
-import Me from "@/assets/images/me.png";
-import SkullHand from "@/assets/images/skull-hand.png";
+import { useScrambleText } from "@/hooks/useScrambleText";
 import CautionStripe from "@/components/commons/CautionStripe";
+import ItsMe from "@/assets/images/me.png";
+import SkullHand from "@/assets/images/skull-hand.png";
 
 const HeroSection = () => {
     const { ref: heroRef, scrollYProgress } = useScrollTrack({
         offset: ["start start", "end end"],
     });
 
-    const styles = {
-        wrapper: "sticky top-0 h-screen overflow-hidden",
-        textContainer:
-            "sticky top-0 h-screen p-8 flex flex-col items-center justify-center md:items-start md:gap-2 md:p-16",
-        title: "text-center font-permanent-marker text-4xl font-bold md:text-8xl",
-        subTitle: "text-md text-emerald-400 font-young-serif font-semibold uppercase md:text-4xl",
-    };
+    // General animation
+    const blurProgress = useTransform(scrollYProgress, [0.6, 1], [0, 20]);
 
-    // Title Effect
-    const progress = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-    const scrambled = useScrambleText(progress, "Let Me Introduce", "Elgin Al-wafi");
-    const titleBlurProgress = useTransform(scrollYProgress, [0.6, 1], [0, 20]);
-    const titleStyle = {
+    // Headline animation
+    const headlineProgress = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+    const headlineText = useScrambleText(headlineProgress, "Let Me Introduce", "Elgin Al-wafi");
+    const headlineStyle = {
         x: useTransform(scrollYProgress, [0.6, 1], [0, -400]),
         opacity: useTransform(scrollYProgress, [0.6, 1], [1, 0]),
-        filter: useMotionTemplate`blur(${titleBlurProgress}px)`,
+        filter: useMotionTemplate`blur(${blurProgress}px)`,
     };
 
-    // SubTitle Effect
-    const subTitleBlurProgress = useTransform(scrollYProgress, [0.6, 1], [0, 20]);
-    const subTitleHueRotateProgress = useTransform(scrollYProgress, [0, 0.6], [0, 90]);
-    const subTitleStyle = {
+    // Tagline animation
+    const taglineHueRotate = useTransform(scrollYProgress, [0, 0.6], [0, 90]);
+    const taglineStyle = {
         opacity: useTransform(scrollYProgress, [0.6, 1], [1, 0]),
         scale: useTransform(scrollYProgress, [0.6, 1], [1, 0]),
         skewY: useTransform(scrollYProgress, [0, 0.6, 0.9, 1], [-3, 0, -10, 20]),
-        filter: useMotionTemplate`blur(${subTitleBlurProgress}px) hue-rotate(${subTitleHueRotateProgress}deg)`,
+        filter: useMotionTemplate`blur(${blurProgress}px) hue-rotate(${taglineHueRotate}deg)`,
     };
 
-    // Hero Image Effect
-    const imageBlurProgress = useTransform(scrollYProgress, [0.6, 1], [1, 20]);
-    const grayscaleProgress = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-    const meStyle = {
+    // My photo animation
+    const myGrayScale = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+    const myStyle = {
         x: useTransform(scrollYProgress, [0.7, 1], [0, 200]),
         opacity: useTransform(scrollYProgress, [0.6, 0.8], [1, 0]),
-        filter: useMotionTemplate`grayscale(${grayscaleProgress}) blur(${imageBlurProgress}px)`,
+        filter: useMotionTemplate`blur(${blurProgress}px) grayscale(${myGrayScale})`,
     };
 
-    // Skull Hand Image Effect
-    const skullHandBlurProgress = useTransform(scrollYProgress, [0.8, 1], [1, 20]);
+    // Skull hand animation
     const skullHandStyle = {
         rotate: "120deg",
         x: useTransform(scrollYProgress, [0, 0.6], [-200, 0]),
         y: useTransform(scrollYProgress, [0, 0.6], [-200, 0]),
-        opacity: useTransform(scrollYProgress, [0.8, 1], [1, 0]),
-        filter: useMotionTemplate`blur(${skullHandBlurProgress}px)`,
+        opacity: useTransform(scrollYProgress, [0.6, 1], [1, 0]),
+        filter: useMotionTemplate`blur(${blurProgress}px)`,
     };
 
     return (
-        <section ref={heroRef} className="relative h-[400vh]">
-            <div className={styles.wrapper}>
-                <div className={styles.textContainer}>
+        <section ref={heroRef} id="hero-section" className="relative h-[400vh]">
+            <div className="wrapper">
+                {/* Hero Text */}
+                <div className="sticky top-0 z-[1] flex h-screen flex-col items-center justify-center p-8 md:items-start md:p-16">
                     <motion.h1
                         initial={{ opacity: 0, x: -400 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className={styles.title}
-                        style={titleStyle}
+                        style={headlineStyle}
+                        className="headline text-center md:text-start"
                     >
-                        {scrambled}
+                        {headlineText}
                     </motion.h1>
                     <motion.h4
                         initial={{ opacity: 0, scale: 0, skewY: -3 }}
                         animate={{ opacity: 1, scale: 1, skewY: 0 }}
                         transition={{ duration: 0.3 }}
-                        className={styles.subTitle}
-                        style={subTitleStyle}
+                        style={taglineStyle}
+                        className="tagline"
                     >
                         My self as developer
                     </motion.h4>
                 </div>
 
-                {/* Hero Image */}
+                {/* My Photo */}
                 <motion.div
                     initial={{ opacity: 0, x: 200 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: 0.5 }}
-                    style={meStyle}
-                    className="absolute -right-8 bottom-20 h-[220px] w-[220px] md:-right-20 md:bottom-40 md:h-[400px] md:w-[400px]"
+                    style={myStyle}
+                    className="absolute -right-10 bottom-20 h-[220px] w-[220px] md:-right-20 md:bottom-40 md:h-[400px] md:w-[400px]"
                 >
                     <Image
-                        src={Me}
-                        alt="Me"
-                        className="drop-shadow-[0_0_8px_rgba(0,212,146,0.2)]"
+                        src={ItsMe}
+                        alt="It's Me"
+                        className="drop-shadow-[0_0_8px_rgba(0,212,146,0.4)]"
                     />
                 </motion.div>
 

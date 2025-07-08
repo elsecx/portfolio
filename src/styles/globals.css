@@ -21,3 +21,17 @@
         background: url("../assets/images/noise.gif");
     }
 }
+
+@layer utilities {
+    .wrapper {
+        @apply sticky top-0 h-screen overflow-hidden;
+    }
+
+    .headline {
+        @apply font-permanent-marker text-4xl font-bold md:text-8xl;
+    }
+
+    .tagline {
+        @apply font-young-serif text-base font-semibold uppercase text-emerald-400 md:text-4xl;
+    }
+}
