@@ -60,7 +60,7 @@ const HeroSection = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
                         style={headlineStyle}
-                        className="headline text-center md:text-start"
+                        className="headline text-center text-4xl md:text-start md:text-8xl"
                     >
                         {headlineText}
                     </motion.h1>
@@ -69,7 +69,7 @@ const HeroSection = () => {
                         animate={{ opacity: 1, scale: 1, skewY: 0 }}
                         transition={{ duration: 0.3 }}
                         style={taglineStyle}
-                        className="tagline"
+                        className="tagline text-base text-emerald-400 md:text-4xl"
                     >
                         My self as developer
                     </motion.h4>

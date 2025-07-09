@@ -28,10 +28,20 @@
     }
 
     .headline {
-        @apply font-permanent-marker text-4xl font-bold md:text-8xl;
+        @apply font-permanent-marker text-4xl font-bold;
     }
 
     .tagline {
-        @apply font-young-serif text-base font-semibold uppercase text-emerald-400 md:text-4xl;
+        @apply font-young-serif font-semibold uppercase;
+    }
+
+    .marquee-gradient {
+        mask-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 1) 20%,
+            rgba(0, 0, 0, 1) 80%,
+            rgba(0, 0, 0, 0)
+        );
     }
 }
