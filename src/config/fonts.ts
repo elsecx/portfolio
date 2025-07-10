@@ -1,4 +1,4 @@
-import { Permanent_Marker, Young_Serif } from "next/font/google";
+import { Permanent_Marker, Young_Serif, Archivo } from "next/font/google";
 
 const marker = Permanent_Marker({
     subsets: ["latin"],
@@ -12,9 +12,16 @@ const youngSerif = Young_Serif({
     variable: "--font-young-serif",
 });
 
+const archivo = Archivo({
+    subsets: ["latin"],
+    weight: "900",
+    variable: "--font-archivo",
+});
+
 export const fonts = {
     marker,
     youngSerif,
+    archivo,
 };
 
 export const fontVariables = Object.values(fonts)

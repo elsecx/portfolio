@@ -11,29 +11,23 @@ const AboutSection = () => {
     return (
         <section ref={aboutRef} id="about-section" className="relative h-[400vh]">
             <div className="wrapper pt-20">
-                <div className="flex w-full flex-col items-center justify-center gap-4">
+                <div className="mask-fade flex w-full flex-col items-center justify-center">
                     <TextMarquee
-                        text="About Me"
-                        speed={25}
-                        reverse={true}
-                        className="tagline text-base tracking-widest text-emerald-400 md:text-4xl"
-                    />
+                        baseVelocity={-10}
+                        separator="&rarr;"
+                        repeatCount={5}
+                        className="font-archivo text-4xl font-black uppercase text-gray-100 md:text-8xl"
+                    >
+                        About Me
+                    </TextMarquee>
                     <TextMarquee
-                        text="Clean code, clear mind"
-                        speed={25}
-                        className="tagline text-base tracking-widest text-gray-100 md:text-4xl"
-                    />
-                    <TextMarquee
-                        text="About Me"
-                        speed={25}
-                        reverse={true}
-                        className="tagline text-base tracking-widest text-emerald-400 md:text-4xl"
-                    />
-                    <TextMarquee
-                        text="Clean code, clear mind"
-                        speed={25}
-                        className="tagline text-base tracking-widest text-gray-100 md:text-4xl"
-                    />
+                        baseVelocity={10}
+                        separator="&#9760;"
+                        repeatCount={2}
+                        className="border border-emerald-400 font-archivo text-4xl font-black uppercase text-emerald-400 md:text-8xl"
+                    >
+                        Clean code, clear mind
+                    </TextMarquee>
                 </div>
             </div>
         </section>

@@ -10,6 +10,7 @@
         "format": "prettier --write ."
     },
     "dependencies": {
+        "@motionone/utils": "^10.18.0",
         "@nextui-org/react": "^2.4.6",
         "@studio-freight/react-lenis": "^0.0.47",
         "clsx": "^2.1.1",
@@ -21,6 +22,7 @@
         "react-dom": "^18",
         "react-lottie": "^1.2.10",
         "tailwind-merge": "^2.4.0",
+        "tailwindcss-text-stroke": "^0.0.5",
         "zustand": "^5.0.5"
     },
     "devDependencies": {

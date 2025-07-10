@@ -35,13 +35,20 @@
         @apply font-young-serif font-semibold uppercase;
     }
 
-    .marquee-gradient {
+    .mask-fade {
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
         mask-image: linear-gradient(
             to right,
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 1) 20%,
-            rgba(0, 0, 0, 1) 80%,
-            rgba(0, 0, 0, 0)
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
         );
     }
 }
