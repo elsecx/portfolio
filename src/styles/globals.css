@@ -18,7 +18,7 @@
         /* you can control opacity of noise  */
         opacity: 0.08;
         pointer-events: none;
-        background: url("../assets/images/noise.gif");
+        background: url("../../public/noise.gif");
     }
 }
 
@@ -33,6 +33,14 @@
 
     .tagline {
         @apply font-young-serif font-semibold uppercase;
+    }
+
+    .text-stripes {
+        @apply font-lora bg-clip-text text-center font-bold text-transparent;
+        background-image: url("../../public/diagonalpattern.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .mask-fade {
