@@ -17,7 +17,11 @@ const HeroSection = () => {
 
     // Headline animation
     const headlineProgress = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-    const headlineText = useScrambleText(headlineProgress, "Let Me Introduce", "Elgin Al-wafi");
+    const headlineText = useScrambleText(
+        headlineProgress,
+        "Let Me Introduce",
+        "I'am Elgin Al-wafi"
+    );
     const headlineStyle = {
         x: useTransform(scrollYProgress, [0.6, 1], [0, -400]),
         opacity: useTransform(scrollYProgress, [0.6, 1], [1, 0]),
@@ -60,7 +64,7 @@ const HeroSection = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
                         style={headlineStyle}
-                        className="headline text-center text-4xl md:text-start md:text-8xl"
+                        className="headline text-center text-2xl md:text-start md:text-8xl"
                     >
                         {headlineText}
                     </motion.h1>
@@ -69,7 +73,7 @@ const HeroSection = () => {
                         animate={{ opacity: 1, scale: 1, skewY: 0 }}
                         transition={{ duration: 0.3 }}
                         style={taglineStyle}
-                        className="tagline text-base text-emerald-400 md:text-4xl"
+                        className="tagline text-sm text-emerald-400 md:text-4xl"
                     >
                         My self as developer
                     </motion.h4>

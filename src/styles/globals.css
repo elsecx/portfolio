@@ -28,7 +28,7 @@
     }
 
     .headline {
-        @apply font-permanent-marker text-4xl font-bold;
+        @apply font-permanent-marker font-bold;
     }
 
     .tagline {
