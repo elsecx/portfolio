@@ -14,6 +14,7 @@ const config: Config = {
                 "permanent-marker": ["var(--font-permanent-marker)", "cursive"],
                 "young-serif": ["var(--font-young-serif)", "serif"],
                 archivo: ["var(--font-archivo)", "sans-serif"],
+                lora: ["var(--font-lora)", "sans-serif"],
             },
         },
     },
