@@ -34,7 +34,7 @@ const AboutSection = () => {
                 <BlueprintGrid
                     spacing={30}
                     lineColor="rgba(0, 255, 255, 0.1)"
-                    opacity={[0, 1, 1, 1]}
+                    opacity={[0.4, 1, 1, 1]}
                 />
 
                 <motion.div

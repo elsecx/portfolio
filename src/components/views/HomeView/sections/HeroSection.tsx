@@ -4,7 +4,7 @@ import Image from "next/image";
 import useScrollTrack from "@/hooks/useScrollTrack";
 import { useScrambleText } from "@/hooks/useScrambleText";
 import CautionStripe from "@/components/commons/CautionStripe";
-import ItsMe from "@/assets/images/me.png";
+import ItsMe from "@/assets/images/me-transparent.png";
 import SkullHand from "@/assets/images/skull-hand.png";
 
 const HeroSection = () => {
