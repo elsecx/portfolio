@@ -35,7 +35,7 @@ const ScrollHint = () => {
             initial={{ opacity: 0 }}
             className="sticky bottom-5 flex justify-center"
         >
-            <div className="flex items-center gap-2 text-xl text-white">
+            <div className="flex items-center gap-2 text-base text-white md:text-xl">
                 <span>Scroll</span>
                 <Lottie options={lottieOptions} height={40} width={40} isClickToPauseDisabled />
                 <span>Down</span>

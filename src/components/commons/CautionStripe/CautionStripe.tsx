@@ -26,13 +26,17 @@ const CautionStripe: React.FC<CautionStripeProps> = ({
 
     return (
         <motion.div
+            initial={{ opacity: 0, x: direction === "left" ? -500 : 500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: 0.6 }}
             style={{
                 x,
                 opacity,
                 rotate: angle,
+                height: "clamp(1rem, 2vw, 2.5rem)",
             }}
             className={cn(
-                "fixed h-8 w-full bg-[repeating-linear-gradient(45deg,_#ffcc00_0,_#ffcc00_10px,_#000_10px,_#000_20px)]",
+                "fixed w-full bg-[repeating-linear-gradient(45deg,_#ffcc00_0,_#ffcc00_10px,_#000_10px,_#000_20px)]",
                 className
             )}
         />

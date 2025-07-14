@@ -10,6 +10,7 @@
         "format": "prettier --write ."
     },
     "dependencies": {
+        "@motionone/utils": "^10.18.0",
         "@nextui-org/react": "^2.4.6",
         "@studio-freight/react-lenis": "^0.0.47",
         "clsx": "^2.1.1",
@@ -17,14 +18,18 @@
         "lucide-react": "^0.515.0",
         "next": "14.2.5",
         "next-themes": "^0.4.6",
+        "prismjs": "^1.30.0",
         "react": "^18",
         "react-dom": "^18",
         "react-lottie": "^1.2.10",
+        "react-simple-code-editor": "^0.14.1",
         "tailwind-merge": "^2.4.0",
+        "tailwindcss-text-stroke": "^0.0.5",
         "zustand": "^5.0.5"
     },
     "devDependencies": {
         "@types/node": "^20",
+        "@types/prismjs": "^1.26.5",
         "@types/react": "^18",
         "@types/react-dom": "^18",
         "@types/react-lottie": "^1.2.10",

@@ -1,3 +1,5 @@
+@import "prismjs/themes/prism-tomorrow.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,6 +20,45 @@
         /* you can control opacity of noise  */
         opacity: 0.08;
         pointer-events: none;
-        background: url("../assets/images/noise.gif");
+        background: url("../../public/noise.gif");
+    }
+}
+
+@layer utilities {
+    .wrapper {
+        @apply sticky top-0 h-screen overflow-hidden;
+    }
+
+    .headline {
+        @apply font-permanent-marker font-bold;
+    }
+
+    .tagline {
+        @apply font-young-serif font-semibold uppercase;
+    }
+
+    .text-stripes {
+        @apply font-lora bg-clip-text text-center font-bold text-transparent;
+        background-image: url("../../public/diagonalpattern.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .mask-fade {
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
     }
 }
