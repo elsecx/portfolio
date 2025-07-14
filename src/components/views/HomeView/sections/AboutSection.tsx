@@ -1,6 +1,9 @@
 import React from "react";
 import { motion, useMotionTemplate, useTransform } from "framer-motion";
+import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Terminal } from "lucide-react";
 import useScrollTrack from "@/hooks/useScrollTrack";
+import BlueprintGrid from "@/components/commons/BlueprintGrid";
 
 const AboutSection = () => {
     const { ref: aboutRef, scrollYProgress } = useScrollTrack({
@@ -16,7 +19,15 @@ const AboutSection = () => {
     return (
         <section ref={aboutRef} id="about-section" className="relative h-[400vh]">
             <div className="wrapper">
-                <h1 className="text-stripes text-8xl">About Me</h1>
+                <BlueprintGrid
+                    spacing={20}
+                    lineColor="rgba(0, 255, 255, 0.1)"
+                    opacity={[0, 1, 1, 1]}
+                />
+
+                <div className="flex h-screen items-center justify-center p-4 md:p-24">
+                    {/*  */}
+                </div>
             </div>
         </section>
     );
