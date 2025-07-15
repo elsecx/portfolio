@@ -3,18 +3,14 @@ import { motion, useMotionTemplate, useTransform } from "framer-motion";
 import useScrollTrack from "@/hooks/useScrollTrack";
 import BlueprintGrid from "@/components/commons/BlueprintGrid";
 import EditorCard from "@/components/commons/EditorCard/EditorCard";
+import { site } from "@/config/constant";
 
 const code = `$ curl -X GET -H "Content-type: application/json" -H "Accept: application/json" "https://elsecx.app/api/about"
 {
-    name: "Elgin Al-wafi Dauliyah",
-    age: "18",
-    location: "Indonesian",
-    skills: {
-        programming: ["PHP", "Typescript", "React Native", "Go"],
-        database: ["MySQL", "SQLite", "MongoDB"],
-        tools: ["Git", "Docker", "Postman", "Figma", "Wordpress"]
-    },
-    description: "A web developer who loves transforming coffee (or tea) into clean, functional code. Recently built a digital graduation platform with Laravel and jQuery - complete with a slick admin dashboard that actually makes sense to use! This hands-on experience leveled up my full-stack skills and user-centered design thinking."
+    name: "${site.name}",
+    age: ${site.age},
+    location: "${site.location}",
+    description: "${site.description}"
 }`;
 
 const AboutSection = () => {
