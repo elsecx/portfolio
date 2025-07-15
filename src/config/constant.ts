@@ -1,6 +1,8 @@
 export const site = {
     name: "Elgin Al-wafi Dauliyah",
-    othername: "AALWF",
+    age: 18,
+    location: "Subang, West Java Indonesia",
+    othername: "elsecx",
     description:
         "I am a fullstack programmer with experience in building functional, efficient, and clean web solutions. Mastering various technologies such as TypeScript, PHP, Go, React Native, and also modern frameworks such as Laravel, Next.js, Expo Go, I am able to handle the entire development process from the frontend to the backend.",
     url: "http://localhost:3000",
