@@ -37,8 +37,14 @@
         @apply font-young-serif font-semibold uppercase;
     }
 
+    .text-outline {
+        color: transparent;
+        -webkit-text-stroke: 1px #00d492;
+        text-stroke: 1px #00d492;
+    }
+
     .text-stripes {
-        @apply font-lora bg-clip-text text-center font-bold text-transparent;
+        @apply bg-clip-text text-center font-lora font-bold text-transparent;
         background-image: url("../../public/diagonalpattern.svg");
         background-size: cover;
         background-repeat: no-repeat;

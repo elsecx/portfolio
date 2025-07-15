@@ -4,6 +4,7 @@ import useScrollTrack from "@/hooks/useScrollTrack";
 import BlueprintGrid from "@/components/commons/BlueprintGrid";
 import EditorCard from "@/components/commons/EditorCard/EditorCard";
 import { site } from "@/config/constant";
+import TextMarquee from "@/components/commons/TextMarquee";
 
 const code = `$ curl -X GET -H "Content-type: application/json" -H "Accept: application/json" "https://elsecx.app/api/about"
 {
@@ -33,9 +34,27 @@ const AboutSection = () => {
                     opacity={[0.4, 1, 1, 1]}
                 />
 
+                <div className="my-16">
+                    <TextMarquee
+                        baseVelocity={15}
+                        repeatCount={6}
+                        className="font-archivo text-4xl font-black uppercase text-emerald-400 md:text-6xl"
+                    >
+                        About Me
+                    </TextMarquee>
+                    <TextMarquee
+                        baseVelocity={-15}
+                        repeatCount={6}
+                        separator="&#9760;"
+                        className="text-outline font-archivo text-4xl font-black uppercase md:text-6xl"
+                    >
+                        Stay Chill
+                    </TextMarquee>
+                </div>
+
                 <motion.div
                     style={cardStyle}
-                    className="flex h-screen items-center justify-center p-4 md:p-24"
+                    className="flex items-center justify-center px-4 md:px-24"
                 >
                     <EditorCard
                         title="About Me"
