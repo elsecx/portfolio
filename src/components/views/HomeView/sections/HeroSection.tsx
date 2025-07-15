@@ -64,7 +64,7 @@ const HeroSection = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
                         style={headlineStyle}
-                        className="headline text-center text-2xl md:text-start md:text-8xl"
+                        className="headline text-center text-4xl md:text-start md:text-8xl"
                     >
                         {headlineText}
                     </motion.h1>
