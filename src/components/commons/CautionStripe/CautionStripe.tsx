@@ -5,7 +5,7 @@ import { cn } from "@/utils/cn";
 type Direction = "left" | "right";
 
 interface CautionStripeProps {
-    scrollProgress: MotionValue<number>;
+    scrollProgress?: MotionValue<number>;
     from?: number;
     to?: number;
     direction?: Direction;
@@ -21,17 +21,20 @@ const CautionStripe: React.FC<CautionStripeProps> = ({
     className = "",
     angle = 0,
 }) => {
-    const x = useTransform(scrollProgress, [from, to], direction === "left" ? [0, -500] : [0, 500]);
-    const opacity = useTransform(scrollProgress, [from + 0.1, to], [1, 0]);
+    const x = scrollProgress
+        ? useTransform(scrollProgress, [from, to], direction === "left" ? [0, -500] : [0, 500])
+        : undefined;
+
+    const opacity = scrollProgress
+        ? useTransform(scrollProgress, [from + 0.1, to], [1, 0])
+        : undefined;
 
     return (
         <motion.div
-            initial={{ opacity: 0, x: direction === "left" ? -500 : 500 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: 0.6 }}
+            initial={scrollProgress ? undefined : false}
+            animate={scrollProgress ? undefined : false}
             style={{
-                x,
-                opacity,
+                ...(scrollProgress ? { x, opacity } : {}),
                 rotate: angle,
                 height: "clamp(1rem, 2vw, 2.5rem)",
             }}
