@@ -66,7 +66,7 @@ const SplashScreen = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.4 }}
-                            className="text-outline font-archivo text-4xl font-black uppercase md:text-6xl"
+                            className="text-outline text-center font-archivo text-2xl font-black uppercase md:text-4xl"
                         >
                             {current.text}
                         </motion.h1>
