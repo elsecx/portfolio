@@ -26,7 +26,7 @@ const AboutSection = () => {
     };
 
     return (
-        <section ref={aboutRef} id="about-section" className="relative h-[400vh]">
+        <section ref={aboutRef} id="about-section" className="relative h-[200vh]">
             <div className="wrapper">
                 <BlueprintGrid
                     spacing={30}
