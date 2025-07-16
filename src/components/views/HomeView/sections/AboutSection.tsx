@@ -26,7 +26,7 @@ const AboutSection = () => {
     };
 
     return (
-        <section ref={aboutRef} id="about-section" className="relative h-[400vh]">
+        <section ref={aboutRef} id="about-section" className="relative h-[200vh]">
             <div className="wrapper">
                 <BlueprintGrid
                     spacing={30}
@@ -36,17 +36,17 @@ const AboutSection = () => {
 
                 <div className="my-16">
                     <TextMarquee
-                        baseVelocity={15}
+                        baseVelocity={-10}
                         repeatCount={6}
-                        className="font-archivo text-4xl font-black uppercase text-emerald-400 md:text-6xl"
+                        className="text-outline font-archivo text-4xl font-black uppercase md:text-6xl"
                     >
                         About Me
                     </TextMarquee>
                     <TextMarquee
-                        baseVelocity={-15}
+                        baseVelocity={15}
                         repeatCount={6}
                         separator="&#9760;"
-                        className="text-outline font-archivo text-4xl font-black uppercase md:text-6xl"
+                        className="font-archivo text-4xl font-black uppercase text-emerald-400 md:text-6xl"
                     >
                         Stay Chill
                     </TextMarquee>
