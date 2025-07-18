@@ -6,6 +6,7 @@ import { useScrambleText } from "@/hooks/useScrambleText";
 import CautionStripe from "@/components/commons/CautionStripe";
 import ItsMe from "@/assets/images/me-transparent.png";
 import SkullHand from "@/assets/images/skull-hand.png";
+import DottedCircle from "@/components/commons/DottedCircle";
 
 const HeroSection = () => {
     const { ref: heroRef, scrollYProgress } = useScrollTrack({
@@ -23,35 +24,37 @@ const HeroSection = () => {
         "I'am Elgin Al-wafi"
     );
     const headlineStyle = {
-        x: useTransform(scrollYProgress, [0.6, 1], [0, -400]),
-        opacity: useTransform(scrollYProgress, [0.6, 1], [1, 0]),
         filter: useMotionTemplate`blur(${blurProgress}px)`,
     };
 
     // Tagline animation
     const taglineHueRotate = useTransform(scrollYProgress, [0, 0.6], [0, 90]);
     const taglineStyle = {
-        opacity: useTransform(scrollYProgress, [0.6, 1], [1, 0]),
-        scale: useTransform(scrollYProgress, [0.6, 1], [1, 0]),
-        skewY: useTransform(scrollYProgress, [0, 0.6, 0.9, 1], [-3, 0, -10, 20]),
+        skewY: useTransform(scrollYProgress, [0, 0.6, 1], [-3, 0, -5]),
         filter: useMotionTemplate`blur(${blurProgress}px) hue-rotate(${taglineHueRotate}deg)`,
     };
 
     // My photo animation
     const myGrayScale = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
     const myStyle = {
-        x: useTransform(scrollYProgress, [0.7, 1], [0, 200]),
-        opacity: useTransform(scrollYProgress, [0.6, 0.8], [1, 0]),
+        y: useTransform(scrollYProgress, [0.7, 1], [0, 100]),
+        x: useTransform(scrollYProgress, [0.7, 1], [0, 250]),
         filter: useMotionTemplate`blur(${blurProgress}px) grayscale(${myGrayScale})`,
     };
 
     // Skull hand animation
     const skullHandStyle = {
         rotate: "120deg",
-        x: useTransform(scrollYProgress, [0, 0.6], [-200, 0]),
-        y: useTransform(scrollYProgress, [0, 0.6], [-200, 0]),
-        opacity: useTransform(scrollYProgress, [0.6, 1], [1, 0]),
+        x: useTransform(scrollYProgress, [0, 1], [-200, 0]),
+        y: useTransform(scrollYProgress, [0, 1], [-200, 0]),
         filter: useMotionTemplate`blur(${blurProgress}px)`,
+    };
+
+    // Dotted circle animation
+    const dottedCircleStyle = {
+        rotate: useTransform(scrollYProgress, [0, 1], [0.5, 360]),
+        scale: useTransform(scrollYProgress, [0, 1], [1, 0]),
+        opacity: useTransform(scrollYProgress, [0, 1], [1, 0]),
     };
 
     return (
@@ -93,6 +96,16 @@ const HeroSection = () => {
                         className="drop-shadow-[0_0_8px_rgba(0,212,146,0.4)]"
                     />
                 </motion.div>
+
+                {/* Dotted Circle */}
+                <DottedCircle
+                    size={200}
+                    dotCount={60}
+                    dotSize={6}
+                    color="#22d3ee"
+                    className="absolute left-[50vw] top-[35vh]"
+                    style={dottedCircleStyle}
+                />
 
                 {/* Skull Hand Image */}
                 <motion.div
