@@ -20,9 +20,9 @@ const AboutSection = () => {
     });
 
     const cardStyle = {
-        opacity: useTransform(scrollYProgress, [0, 0.3], [0, 1]),
-        scale: useTransform(scrollYProgress, [0, 0.3], [0, 1]),
-        perspective: useTransform(scrollYProgress, [0, 0.3], [10, 0]),
+        opacity: useTransform(scrollYProgress, [0, 0.6], [0, 1]),
+        scale: useTransform(scrollYProgress, [0, 0.6], [0, 1]),
+        perspective: useTransform(scrollYProgress, [0, 0.6], [10, 0]),
     };
 
     return (
