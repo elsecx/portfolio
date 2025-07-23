@@ -88,7 +88,7 @@ const HeroSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: 0.5 }}
                     style={myStyle}
-                    className="absolute -right-10 bottom-20 h-[220px] w-[220px] md:-right-20 md:bottom-40 md:h-[400px] md:w-[400px]"
+                    className="absolute -right-10 bottom-20 z-10 h-[220px] w-[220px] md:-right-20 md:bottom-40 md:h-[400px] md:w-[400px]"
                 >
                     <Image
                         src={ItsMe}
@@ -100,7 +100,7 @@ const HeroSection = () => {
                 {/* Dotted Circle */}
                 <DottedCircle
                     size={200}
-                    dotCount={60}
+                    dotCount={30}
                     dotSize={6}
                     color="#22d3ee"
                     className="absolute left-[50vw] top-[35vh]"
